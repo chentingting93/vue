@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width: 100px;
+			height: 100px;
+			background: #000;
+		}
+		/* .loding{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 50%;
+			height: 30%;
+			margin: auto;
+			text-align: center;
+			border: 1px solid red;
+		} */
+
+		.loding{
+			width: 50px;
+			height: 50px;
+			border: 2px solid #fff;
+			border-radius: 100%;
+			text-align: center;
+			-webkit-animation:2s infinite linear;
+			-webkit-animation-name:rotate;
+		}
+
+		.lod{
+			width: 25px;
+			height: 25px;
+			border-radius: 100%;
+			background: #000;
+			float: right;
+		}
+
+		.wrap span{
+			display: inline-block;
+			color: #fff;
+			margin-top:10px; 
+			text-align: center;
+		}
+		@-webkit-keyframes rotate{
+			0%{
+				-webkit-transform:rotate(0deg);
+			}
+			100%{
+				-webkit-transform:rotate(360deg);
+			}
+		}
+		
+		.sanjiao{
+		    width: 0;
+ 			height: 0;
+ 			margin: 20px;
+ 			border:20px solid transparent;
+ 			border-left:20px solid #000; 
+			float: left;
+		}
+
+		.sanjiao:before{
+			content:"";
+			display: block;
+			border:20px solid transparent;
+			border-left-color: #fff;
+			margin-left: -22px;
+			margin-top: -20px;
+		}
+
+		.sanjiao2{
+			width: 0;
+			height: 0;
+			margin: 20px;
+			border:20px solid transparent;
+			border-left:20px solid #000;
+			float: left;
+		}
+		
+		#container{
+			clear: both;
+			width: 100px;
+			height: 50px;
+			border: 1px solid #000;
+		}
+
+		.click{
+			margin-top: 10px;
+		}
+		.click li{
+			line-height:30px;
+		}
+
+	</style>
+</head>
+<body>
+
+		<!-- <div class="box">
+			我不知道我的宽高是多少 要实现水平垂直都居中
+		</div> -->
+		<div class="wrap">
+			<div class="loding">
+			<div class="lod"></div>
+		</div>
+		<span>已加载33%</span>
+		</div>
+
+		<div class="sanjiao">
+		</div>
+		
+		 <div class="sanjiao2">
+			
+		</div> 
+		
+		<div id="container">
+			
+		</div>
+		
+		<ul class="click" id='click'>
+			<li>编号1</li>
+			<li>编号2</li>
+			<li>编号3</li>
+			<li>编号4</li>
+			<li>编号5</li>
+			<li>编号6</li>
+		</ul>
+
+	<script>
+
+	//一 用 三种css 实现盒子垂直居中的效果（高度auto）
+	// 1 position: absolute;top: 50%;left: 50%; -webkit-transform:translate(-50%, -50%);-moz-transform: translate(-50%, -50%);transform: translate(-50%, -50%)    
+	// 2 position absolut top0 left0 right0 bottom0   margin:auto  
+	// 3 position: absolute;top: 0;bottom: 0;left: 0;right: 0;width: 50%;height: 30%;margin: auto;
+			
+	// 二 用纯css和html实现 loding加载中的效果 圆环有缺口无限循环旋转动画
+
+	// 三 用css 和 html  实现 三角
+
+	//四 正则验证Ipv4的合法性
+		// (((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5]))\.){3}((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5]))
+			
+	//五 用原生JS 将 文本 apend到 id 为 container的盒子中
+// 	var container = document.querySelector('#container');
+// 	var box = document.createElement('div');
+// 		box.innerHTML = '插入父盒子';
+// 		container.appendChild(box)
+			
+// 	//六 排序
+// 	var arr = [1,47,320,56,88,588,9999];
+// 	arr.sort((a,b) => a>b)
+// 	//console.log(arr)
+
+// 	function sorts(arr){
+// 		var num = 0;
+// 		for(var i=0,len=arr.length;i<len;i++){
+// 			for(var j=i;j<arr.length;j++){
+// 				if(arr[i]>arr[j+1]){
+// 					num=arr[i];
+// 					arr[i]=arr[j+1];
+// 					arr[j+1]=num;
+
+// 				}
+// 			}
+
+// 		}
+// 		return arr;
+// 	}
+
+// 	console.log(sorts(arr))
+
+
+// 	//七 实现一段脚本 实现对应的编号
+// 	var lis = document.getElementsByTagName("li");
+// 	for(var i=0,len=lis.length;i<len;i++){
+// 		lis[i].onclick=function(){
+// 			alert(this.innerHTML)
+// 		}
+// 	}
+
+// 	//八、js对象 实现clone
+// 	Object.prototype.clone = function () {
+// 	    var obj = {};
+// 	    for (var attr in this) {
+// 	        obj[attr] = this[attr];
+// 	    }
+// 	    return obj;
+// 	};
+
+
+// //九 字符串中 出现次数最多的
+//  var a = 'aaaabsdwefsdfd';
+// 	String.prototype.mostTimes=function(){
+// 			var len=0,val="";
+// 			for(var i=0;i<this.length;i++){
+// 				var each=this.charAt(i),
+// 					arr=this.split(each);
+// 				if(arr.length>len){
+// 					len=arr.length-1;
+// 					val=each
+// 				}
+				
+// 			}
+// 			return val;
+// 		}
+
+	//console.log(a.mostTimes());
+
+// 扩展运算符的 六个重要用途
+
+ //1 复制 数组	
+ var arr = [1,2,3];
+ var arr2 = [...arr];
+ arr2.push(4);
+
+ //console.log(arr2) // 1234
+
+//2 不使用Apply去调用函数
+	function doStuff(x,y,z){
+		return x+','+y+','+z
+	}
+	var arg2 = [0,1,2];
+	//console.log(doStuff.apply(null,arg2)) 
+	//console.log(doStuff(...arg2)) //运用扩展运算符 来实现
+
+// 3 合并数组
+ var arr1 = [1,2,3];
+ var arr2 = [4,5,6];
+ 	//arr1.push(...arr2) //把 arr2合并在数组的后面
+ 	arr1.unshift(...arr2) // 把arr2合并在数组的前面
+ 	arr3 = [7,8,...arr1,9] //指定位置插入
+  	console.log(arr3) 
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+@mixin flex{
+    display: -moz-box;
+	display: -webkit-box;
+    display: -ms-flexbox;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display:flex;
+}
+@mixin flexTo($size:1){
+    -webkit-box-flex: $size;
+    -moz-box-flex: $size;
+    -webkit-flex: $size;
+    flex: $size;
+    -ms-flex: $size;
+   
+}
+@mixin direction(){
+    -moz-box-orient: vertical;
+    -webkit-box-orient:vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+

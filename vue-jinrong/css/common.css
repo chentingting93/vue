@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "yocont";
+  src: url("../../../img/icon/iconfont.woff"), url("../../../img/icon/iconfont.ttf");
+}
+
+.iconfont {
+  font-family: "yocont";
+}
